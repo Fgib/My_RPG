@@ -42,6 +42,7 @@ void load_editor_exit_menu(gen_t *prm);
 void load_editor_gui_tools(gen_t *prm);
 void load_editor_gui(gen_t *prm);
 void load_editor_scenario_stuff(gen_t *prm);
+void enemy_fight(gen_t *prm);
 
 //loader/load_keys.c
 keys_t load_keys(void);
@@ -110,6 +111,7 @@ void draw_save_selector(gen_t *prm);
 //ennemies/mouvement.c
 sfVector2f get_enemy_vector(float angle);
 float get_angle_to_player(gen_t *prm, enemy_t *self);
+void enemies_movement(gen_t *prm);
 
 //drawer/drawer_utils.c
 void draw_slider(sfRenderWindow *window, struct slider *slider);

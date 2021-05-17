@@ -132,11 +132,9 @@ $(NAME): $(REAL)/$(NAME)
 	$(V) cp $(REAL)/$(NAME) $(ROOT)
 	$(V) printf "$(PURPLE)\nDup $(GREEN)$(PURPLE)$(NAME)$(WHITE)$(PURPLE) into root directory.$(WHITE)\n"
 	$(V) printf "$(GREEN)Project compilation success\n$(WHITE)"
-$(REAL)/$(NAME):
+$(REAL)/$(NAME): mkobj
 	$(V) printf "$(YELLOW)===== LIBRARIES COMPILATION =====\n$(WHITE)"
 	$(V) make mklib $(DEBUG_FLAG)
-	$(V) printf "$(YELLOW)====== SOURCES COMPILATION ======\n$(WHITE)"
-	$(V) make mkobj $(DEBUG_FLAG)
 	$(V) printf "$(GREEN)[OK]$(PURPLE) Linking obj and libraries.$(WHITE)\n"
 	$(V) $(CC) -o $(REAL)/$(NAME) $(OBJS) $(LFLAGS) $(CSFMLFLAGS)
 	$(V) printf "$(GREEN)[OK]$(PURPLE) Binary link done.$(WHITE)\n"

@@ -27,8 +27,8 @@ void game_calculation(gen_t *prm)
     if (prm->game_step == GAME) {
         player_movement(prm);
         player_animation(prm);
+        enemies_movement(prm);
     }
-
 }
 
 int main(void)
@@ -48,4 +48,4 @@ int main(void)
     }
     dispose(prm);
     return 0;
-}
+} 

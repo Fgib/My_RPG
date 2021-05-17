@@ -22,6 +22,7 @@ void load_enemies(scenario_t *sce)
         set_random_pos(sce, &(sce->enemies[i]));
         sce->enemies[i].look_dir = 0;
         sfSprite_setScale(sce->enemies[i].sprite, get_vector(4, 4));
+        sfSprite_setOrigin(sce->enemies[i].sprite, get_vector(24, 32));
     }
 }
 
