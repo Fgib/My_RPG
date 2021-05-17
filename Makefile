@@ -119,6 +119,7 @@ ORANGE	=	\e[1;33m
 BLUE	=	\e[1;34m
 PURPLE  = 	\033[35m
 CYAN    =	\033[36m
+YELLOW	=	\e[1;33m
 
 all:		intro $(NAME)
 
@@ -131,7 +132,11 @@ $(NAME): $(REAL)/$(NAME)
 	$(V) cp $(REAL)/$(NAME) $(ROOT)
 	$(V) printf "$(PURPLE)\nDup $(GREEN)$(PURPLE)$(NAME)$(WHITE)$(PURPLE) into root directory.$(WHITE)\n"
 	$(V) printf "$(GREEN)Project compilation success\n$(WHITE)"
-$(REAL)/$(NAME): lib/libprintf.a			$(OBJS)
+$(REAL)/$(NAME):
+	$(V) printf "$(YELLOW)===== LIBRARIES COMPILATION =====\n$(WHITE)"
+	$(V) make mklib $(DEBUG_FLAG)
+	$(V) printf "$(YELLOW)====== SOURCES COMPILATION ======\n$(WHITE)"
+	$(V) make mkobj $(DEBUG_FLAG)
 	$(V) printf "$(GREEN)[OK]$(PURPLE) Linking obj and libraries.$(WHITE)\n"
 	$(V) $(CC) -o $(REAL)/$(NAME) $(OBJS) $(LFLAGS) $(CSFMLFLAGS)
 	$(V) printf "$(GREEN)[OK]$(PURPLE) Binary link done.$(WHITE)\n"
@@ -141,8 +146,26 @@ $(REAL)/%.o: $(SRC_DIR)/%.c | $(REAL)
 	$(V) printf "$(PURPLE)Compiling $(GREEN)$(PURPLE)[$(WHITE)$(PURPLE)$(notdir $<)$(GREEN)$(PURPLE) -> $(CYAN)$(notdir $@)$(GREEN)$(PURPLE)]\n$(WHITE)"
 	$(V) $(CC) -o $@ -c $< $(CFLAGS) $(LFLAGS)
 
+
+
+mkobj: $(OBJS)
+	$(V) printf "$(GREEN)====== SOURCES COMPILED ======\n\n$(WHITE)"
+
+mklib: lib/libprintf.a	lib/libmy.a	
+	$(V) printf "$(GREEN)===== LIBRARIES COMPILED =====\n\n$(WHITE)"
+
 lib/lib%.a:
 	$(V) $(MAKE) -C lib/$* $(DEBUG_FLAG)
+
+
+
+
+rmlib: rm/lib/libprintf.a	rm/lib/libmy.a
+	$(V) printf "$(YELLOW)===== LIBRARIES CLEANED =====\n\n$(WHITE)"
+
+rm/lib/lib%.a:
+	$(V) $(MAKE) -C lib/$* fclean $(DEBUG_FLAG)
+
 
 $(REAL):
 	$(V) mkdir $@
@@ -152,6 +175,8 @@ clean:
 	$(V) printf "$(ORANGE)Removing object files.$(WHITE)\n"
 
 fclean:	clean
+	$(V) printf "$(YELLOW)===== LIBRARIES CLEANUP =====\n$(WHITE)"
+	$(V) make rmlib $(DEBUG_FLAG)
 	$(V) rm -f $(REAL)/$(NAME)
 	$(V) rm -f $(ROOT)/$(NAME)
 	$(V) rm -rf $(REAL)

@@ -1,6 +1,6 @@
 ##
-## EPITECH PROJECT, 2021
-## B-PSU-101-LYN-1-1-minishell1-florian.gibault
+## EPITECH PROJECT, 2020
+## C Pool Day 10
 ## File description:
 ## Makefile
 ##
@@ -9,11 +9,7 @@ SRC		=	$(shell find . -type f -name "*.c")
 
 OBJ 	= 	$(SRC:.c=.o)
 
-CFLAGS	=	$(EFLAGS)
-
-EFLAGS	=	-Werror -Wall -Wextra -Wpedantic
-
-NAME 	= 	libmy.a
+NAME 	= 	libprintf.a
 
 #COLORS
 WHITE	=	\e[0m
@@ -29,24 +25,17 @@ BLUE	=	\e[1;34m
 PURPLE    = \033[35m
 #CYAN      = \033[36m
 
-all:	
-	@ make start -s
-	@ ar rc $(NAME) $(OBJ)
-	@ mkdir -p ../../inc
-	@ cp libmy.h ../../inc
-	@ cp $(NAME) ../$(NAME)
-	@ make clean
+all: 	$(NAME)
 
-	@ printf "$(PURPLE)Starting My library compilation...\n$(WHITE)"
+$(NAME): 	
+	@ printf "$(PURPLE)Starting MyPrintf Library compilation...\n$(WHITE)"
 	@ printf "$(PURPLE)| --> Compiling .c to Object file...\n$(WHITE)"
 	@ make start -s
 	@ printf "$(PURPLE)| --> Compiling Object files into .a...\n$(WHITE)"
 	@ ar rc $(NAME) $(OBJ)
 	@ printf "$(PURPLE)| --> Copying library to lib folder...\n$(WHITE)"
 	@ cp $(NAME) ../$(NAME)
-	@ printf "$(PURPLE)| --> Copying Header file into include directory...\n$(WHITE)"
-	@ cp libmy.h ../../inc/libmy.h
-	@ printf "$(GREEN)[OK]$(PURPLE) Lib_my successfully compiled !\n\n$(WHITE)"
+	@ printf "$(GREEN)[OK]$(PURPLE) MyPrintf lib successfully compiled !\n\n$(WHITE)"
 	@ make clean
 
 start:	$(OBJ)
@@ -55,10 +44,9 @@ clean:
 	@ rm -f $(OBJ)
 
 fclean: clean
-	@ printf "$(PURPLE)Starting My library Cleanup...\n$(WHITE)"
+	@ printf "$(PURPLE)Starting printf library Cleanup...\n$(WHITE)"
 	@ printf "$(PURPLE)| --> Deleting .a file...\n$(WHITE)"
-	@ rm -f ../$(NAME)
-	@ rm -f $(NAME)
-	@ printf "$(GREEN)[OK]$(PURPLE) Lib_my successfully cleaned !\n\n$(WHITE)"
+	@ rm -f ../$(NAME) $(NAME)
+	@ printf "$(GREEN)[OK]$(PURPLE) libprintf successfully cleaned !\n\n$(WHITE)"
 
 re: fclean all
