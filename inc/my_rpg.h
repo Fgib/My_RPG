@@ -42,7 +42,6 @@ void load_editor_exit_menu(gen_t *prm);
 void load_editor_gui_tools(gen_t *prm);
 void load_editor_gui(gen_t *prm);
 void load_editor_scenario_stuff(gen_t *prm);
-void enemy_fight(gen_t *prm);
 
 //loader/load_keys.c
 keys_t load_keys(void);

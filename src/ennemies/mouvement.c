@@ -36,16 +36,8 @@ void enemies_movement(gen_t *prm)
             SPOSE(prm->game.scenario.enemies[i])
         }
         if (PRANGE(prm->game.scenario.enemies[i].pos, prm->game.player->coo) < 100) {
-            prm->game.player->life -= 1;
-        }
-    }
-}
-
-void enemy_fight(gen_t *prm)
-{
-    for (int i = 0; i < prm->game.scenario.enemies_count; i++) {
-        if (PRANGE(prm->game.scenario.enemies[i].pos, prm->game.player->coo) < 100) {
-            prm->game.player->life -= 1;
+            prm->game.player->life = fmax(prm->game.player->life - 0.1, 0);
+            printf("new life: %f\n", prm->game.player->life);
         }
     }
 }

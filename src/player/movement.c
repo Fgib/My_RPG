@@ -67,7 +67,6 @@ int diagonal_movement(gen_t *prm)
 void regular_movement(gen_t *prm)
 {
     float speed = 2 + prm->game.player->stats.mov_speed;
-    printf("flo la catin puissance %f\n", speed);
     if (prm->keys.mv_up && can_move(prm, 0, speed)) {
         prm->game.player->coo.y -= speed;
         prm->game.player->dir = 0;

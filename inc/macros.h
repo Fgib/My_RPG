@@ -34,4 +34,5 @@ V.y = Y.y - X.y;
 
 #define RANGE(X, Y) sqrt(pow(X.x / 256 - Y.x / 256, 2) +\
 pow(X.y / 256 - Y.y / 256, 2))
+#define PRANGE(X, Y) sqrt(pow(X.x - Y.x, 2) + pow(X.y- Y.y, 2))
 #define MCCASE(X) 710 + X % 9 * 56, 520 + X / 9 * 56 + (X / 9 == 3 ? 25 : 0)

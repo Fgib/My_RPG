@@ -184,7 +184,7 @@ typedef struct player {
     int skin_id;
     int gmode;
     int idle;
-    int life;
+    float life;
     int fly;
     int dir;
 } player_t;
