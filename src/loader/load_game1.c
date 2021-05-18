@@ -41,7 +41,7 @@ void load_game_stats_up(gen_t *prm)
     prm->game.player->atk_plus = initialize_button((vec_t){900, 400}, (vec_t){26, 26}, get_vector(0.5, 0.5), "assets/tempo.png");
     prm->game.player->mv_speed_plus = initialize_button((vec_t){900, 475}, (vec_t){26, 26}, get_vector(0.5, 0.5), "assets/tempo.png");
     prm->game.player->atk_speed_plus = initialize_button((vec_t){900, 550}, (vec_t){26, 26}, get_vector(0.5, 0.5), "assets/tempo.png");
-    load_text_button(prm->game.player->atk_plus)
-    load_text_button(prm->game.player->mv_speed_plus)
-    load_text_button(prm->game.player->atk_speed_plus)
+    load_text_button(prm->game.player->atk_plus, (vec3_t){5, 5, 15}, "+");
+    load_text_button(prm->game.player->mv_speed_plus, (vec3_t){5, 5, 15}, "+");
+    load_text_button(prm->game.player->atk_speed_plus, (vec3_t){5, 5, 15}, "+");
 }
