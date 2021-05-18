@@ -74,7 +74,7 @@ void load_editor_gui(gen_t *prm)
 void load_editor_scenario_stuff(gen_t *prm)
 {
     prm->editor.scenario = malloc(sizeof(scenario_t));
-    prm->editor.scenario->path = "first_scenario.scen";
+    prm->editor.scenario->path = "enter_the_dungeon.scen";
     prm->editor.scenario->row_data =
     my_str_splitter(my_file_loader(prm->editor.scenario->path), '\n');
     prm->editor.scenario->name = "Joli Nom";
