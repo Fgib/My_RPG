@@ -14,8 +14,10 @@ void draw_editor_print_gui(gen_t *prm)
     DRAW_S(prm->editor.enemies->sprite);
     DRAW_S(prm->editor.hitbox->sprite);
     DRAW_S(prm->editor.spawnpoint->sprite);
+    DRAW_S(prm->editor.endpoint->sprite);
     DRAW_T(prm->editor.hitbox->text);
     DRAW_T(prm->editor.spawnpoint->text);
+    DRAW_T(prm->editor.endpoint->text);
     DRAW_T(prm->editor.enemies->text);
     draw_simplified_slider(prm->window, prm->editor.zones_selector);
     DRAW_S(prm->editor.hide_zones->sprite);
@@ -56,6 +58,15 @@ void draw_editor_enemies_stats_text(gen_t *prm)
     DRAW_T(prm->editor.nb_val);
 }
 
+void draw_editor_enemies_stats_text2(gen_t *prm)
+{
+    DRAW_T(prm->editor.hp_text->text);
+    DRAW_T(prm->editor.armor_text->text);
+    DRAW_T(prm->editor.range_text->text);
+    DRAW_T(prm->editor.speed_text->text);
+    DRAW_T(prm->editor.nb_text->text);
+}
+
 void draw_editor_enemies_stats(gen_t *prm)
 {
     DRAW_S(prm->editor.pop_stat->icon);
@@ -72,4 +83,5 @@ void draw_editor_enemies_stats(gen_t *prm)
     DRAW_S(prm->editor.nb_plus->sprite);
     DRAW_S(prm->editor.nb_moins->sprite);
     draw_editor_enemies_stats_text(prm);
+    draw_editor_enemies_stats_text2(prm);
 }

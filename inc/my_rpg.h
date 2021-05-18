@@ -109,6 +109,7 @@ void draw_save_selector(gen_t *prm);
 //ennemies/mouvement.c
 sfVector2f get_enemy_vector(float angle);
 float get_angle_to_player(gen_t *prm, enemy_t *self);
+void enemies_movement(gen_t *prm);
 
 //drawer/drawer_utils.c
 void draw_slider(sfRenderWindow *window, struct slider *slider);
@@ -121,6 +122,10 @@ void setup_settings_btns_text(setti_menu_t *temp);
 void setup_settings_btns(setti_menu_t *temp);
 void load_settings_keymap(setti_menu_t *temp);
 setti_menu_t *load_settings_menu(void);
+
+//loader/load_settings2.c
+void load_text_settings_keymap_coo(setti_menu_t *temp);
+void load_text_settings_keymap_b(setti_menu_t *temp);
 
 //drawer/draw_home.c
 void draw_home(gen_t *prm);

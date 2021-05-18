@@ -55,6 +55,7 @@ void get_player_stats(player_t *ply)
     ply->gmode = 0;
     ply->vision = 5;
     ply->attack_id = 0;
+    ply->life = 100;
 }
 
 void select_player(gen_t *prm, int nbr)

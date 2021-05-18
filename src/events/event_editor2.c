@@ -50,4 +50,6 @@ void taskbar_reset(gen_t *prm)
     get_intrect(0, 53, 53, 53));
     sfSprite_setTextureRect(prm->editor.spawnpoint->sprite,
     get_intrect(0, 53, 53, 53));
+    sfSprite_setTextureRect(prm->editor.endpoint->sprite,
+    get_intrect(0, 53, 53, 53));
 }

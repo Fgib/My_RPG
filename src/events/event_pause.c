@@ -9,17 +9,16 @@
 
 void pause_menu_event1(gen_t *prm)
 {
-    if (triforce(prm->event, prm->pause->resume_b)) {
+    if (triforce(prm->event, prm->pause->resume_b))
         prm->game_step = GAME;
-    }
     if (triforce(prm->event, prm->pause->settings_b))
         prm->game_step = G_SETTINGS;
-    if (triforce(prm->event, prm->pause->menu_b)) {
+    if (triforce(prm->event, prm->pause->menu_b))
         prm->game_step = HOME;
-    }
-    if (triforce(prm->event, prm->pause->exit_b)) {
+    if (triforce(prm->event, prm->pause->exit_b))
         prm->game_step = OUT;
-    }
+    if (triforce(prm->event, prm->pause->restart_b))
+        prm->game_step = HOME;
 }
 
 void pause_menu_event2(gen_t *prm)
@@ -33,10 +32,8 @@ void pause_menu_event2(gen_t *prm)
 
 void pause_menu_event(gen_t *prm)
 {
-    if (prm->game_step == PAUSE) {
+    if (prm->game_step == PAUSE)
         pause_menu_event1(prm);
-    }
-    if (prm->game_step == PAUSE_SAVE) {
+    if (prm->game_step == PAUSE_SAVE)
         pause_menu_event2(prm);
-    }
 }

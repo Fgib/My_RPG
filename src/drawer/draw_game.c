@@ -42,6 +42,9 @@ void draw_game_toolbar(gen_t *prm)
 
 void draw_lifebar(gen_t *prm)
 {
+    float size = prm->game.player->life / 100.0;
+
+    sfSprite_setScale(prm->game.lifebar.bar, get_vector(size, 1));
     DRAW_S(prm->game.lifebar.bar);
     DRAW_S(prm->game.lifebar.frame);
 }

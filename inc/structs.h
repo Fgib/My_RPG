@@ -184,7 +184,7 @@ typedef struct player {
     int skin_id;
     int gmode;
     int idle;
-    int life;
+    float life;
     int fly;
     int dir;
 } player_t;
@@ -287,10 +287,12 @@ typedef struct setti_menu {
     struct button *go_right;
     struct button *go_down;
     struct button *go_left;
+    struct button *attack;
     sfText *t_up;
     sfText *t_right;
     sfText *t_down;
     sfText *t_left;
+    sfText *t_atck;
     slider_t *luminosity;
     slider_t *contrast;
     slider_t *saturation;
@@ -313,19 +315,25 @@ enum pen_mode {
     ZONES,
     HITBOX,
     SPAWN,
+    END,
 };
 
 typedef struct editor_menu {
     struct button *hp_plus;
     struct button *hp_moins;
+    struct button *hp_text;
     struct button *armor_plus;
     struct button *armor_moins;
+    struct button *armor_text;
     struct button *range_plus;
     struct button *range_moins;
+    struct button *range_text;
     struct button *speed_plus;
     struct button *speed_moins;
+    struct button *speed_text;
     struct button *nb_plus;
     struct button *nb_moins;
+    struct button *nb_text;
     sfText *hp_val;
     sfText *armor_val;
     sfText *range_val;
@@ -345,6 +353,7 @@ typedef struct editor_menu {
     struct button *hitbox;
     struct button *enemies;
     struct button *spawnpoint;
+    struct button *endpoint;
     int enemy_selected;
     enum editor_step edit_step;
     enum pen_mode pmod;

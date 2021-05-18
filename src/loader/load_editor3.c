@@ -54,9 +54,12 @@ void load_editor_gui_tools(gen_t *prm)
     (vec_t){75, 75}, get_vector(1.4, 1.4), "assets/cell.png");
     prm->editor.spawnpoint = initialize_button((vec_t){600, 10},
     (vec_t){75, 75}, get_vector(1.4, 1.4), "assets/cell.png");
+    prm->editor.endpoint = initialize_button((vec_t){800, 10},
+    (vec_t){75, 75}, get_vector(1.4, 1.4), "assets/cell.png");
     load_text_button(prm->editor.enemies, (vec3_t){15, 30, 15}, "MOBS");
     load_text_button(prm->editor.hitbox, (vec3_t){5, 30, 15}, "HITBOX");
     load_text_button(prm->editor.spawnpoint, (vec3_t){5, 30, 15}, "SPAWN");
+    load_text_button(prm->editor.endpoint, (vec3_t){15, 30, 15}, "END");
 }
 
 void load_editor_gui(gen_t *prm)
@@ -71,7 +74,11 @@ void load_editor_gui(gen_t *prm)
 void load_editor_scenario_stuff(gen_t *prm)
 {
     prm->editor.scenario = malloc(sizeof(scenario_t));
+<<<<<<< HEAD
     prm->editor.scenario->path = prm->path;
+=======
+    prm->editor.scenario->path = "enter_the_dungeon.scen";
+>>>>>>> cc7e3b3ddfa5c127e2cbcd654a16bd06fd0c2d0e
     prm->editor.scenario->row_data =
     my_str_splitter(my_file_loader(prm->editor.scenario->path), '\n');
     prm->editor.scenario->name = "Joli Nom";

@@ -21,6 +21,8 @@ void window_update(gen_t *prm)
         draw_game(prm);
     if (prm->game_step == SAVE_SELECTOR)
         draw_save_selector(prm);
-    if (prm->game_step == PAUSE || prm->game_step == PAUSE_SAVE)
+    if (prm->game_step == PAUSE || prm->game_step == PAUSE_SAVE) {
+        draw_game(prm);
         draw_pause(prm);
+    }
 }

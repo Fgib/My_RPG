@@ -9,8 +9,8 @@
 </player1>
 <player2>
     <stats>
-        <mspeed>50</mspeed>
-        <aspeed>1999</aspeed>
+        <mspeed>5</mspeed>
+        <aspeed>50</aspeed>
         <damage>323</damage>
         <lvl>176</lvl>
         <xp>1234445</xp>

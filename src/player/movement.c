@@ -30,15 +30,16 @@ int can_move(gen_t *prm, int dir, float speed)
 
 int diagonal_movement_bis(gen_t *prm)
 {
-    if (prm->keys.mv_down && prm->keys.mv_left && can_move(prm, 5, 5)) {
-        prm->game.player->coo.x -= 3.56;
-        prm->game.player->coo.y += 3.56;
+    float speed = 1.41 + prm->game.player->stats.mov_speed;
+    if (prm->keys.mv_down && prm->keys.mv_left && can_move(prm, 5, speed)) {
+        prm->game.player->coo.x -= speed;
+        prm->game.player->coo.y += speed;
         prm->game.player->dir = 1;
         return 1;
     }
-    if (prm->keys.mv_left && prm->keys.mv_up && can_move(prm, 7, 5)) {
-        prm->game.player->coo.x -= 3.56;
-        prm->game.player->coo.y -= 3.56;
+    if (prm->keys.mv_left && prm->keys.mv_up && can_move(prm, 7, speed)) {
+        prm->game.player->coo.x -= speed;
+        prm->game.player->coo.y -= speed;
         prm->game.player->dir = 0;
         return 1;
     }
@@ -47,15 +48,16 @@ int diagonal_movement_bis(gen_t *prm)
 
 int diagonal_movement(gen_t *prm)
 {
-    if (prm->keys.mv_up && prm->keys.mv_right && can_move(prm, 1, 5)) {
-        prm->game.player->coo.x += 3.56;
-        prm->game.player->coo.y -= 3.56;
+    float speed = 1.41 + prm->game.player->stats.mov_speed;
+    if (prm->keys.mv_up && prm->keys.mv_right && can_move(prm, 1, speed)) {
+        prm->game.player->coo.x += speed;
+        prm->game.player->coo.y -= speed;
         prm->game.player->dir = 0;
         return 1;
     }
-    if (prm->keys.mv_right && prm->keys.mv_down && can_move(prm, 3, 5)) {
-        prm->game.player->coo.x += 3.56;
-        prm->game.player->coo.y += 3.56;
+    if (prm->keys.mv_right && prm->keys.mv_down && can_move(prm, 3, speed)) {
+        prm->game.player->coo.x += speed;
+        prm->game.player->coo.y += speed;
         prm->game.player->dir = 3;
         return 1;
     }
@@ -64,20 +66,21 @@ int diagonal_movement(gen_t *prm)
 
 void regular_movement(gen_t *prm)
 {
-    if (prm->keys.mv_up && can_move(prm, 0, 5)) {
-        prm->game.player->coo.y -= 5;
+    float speed = 2 + prm->game.player->stats.mov_speed;
+    if (prm->keys.mv_up && can_move(prm, 0, speed)) {
+        prm->game.player->coo.y -= speed;
         prm->game.player->dir = 0;
     }
-    if (prm->keys.mv_left && can_move(prm, 6, 5)) {
-        prm->game.player->coo.x -= 5;
+    if (prm->keys.mv_left && can_move(prm, 6, speed)) {
+        prm->game.player->coo.x -= speed;
         prm->game.player->dir = 1;
     }
-    if (prm->keys.mv_down && can_move(prm, 4, 5)) {
-        prm->game.player->coo.y += 5;
+    if (prm->keys.mv_down && can_move(prm, 4, speed)) {
+        prm->game.player->coo.y += speed;
         prm->game.player->dir = 2;
     }
-    if (prm->keys.mv_right && can_move(prm, 2, 5)) {
-        prm->game.player->coo.x += 5;
+    if (prm->keys.mv_right && can_move(prm, 2, speed)) {
+        prm->game.player->coo.x += speed;
         prm->game.player->dir = 3;
     }
 }
