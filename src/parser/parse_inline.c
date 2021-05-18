@@ -43,7 +43,8 @@ char *get_inline_content(char **file, char *balise)
         }
         my_free(2, buff, res);
     }
-    return "";
+    res = my_strdup("");
+    return res;
 }
 
 char *get_inline_ncontent(char **file, char *balise, int n)

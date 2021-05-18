@@ -23,23 +23,49 @@ vec_t get_map_size(char **file)
     return res;
 }
 
+int get_start(scenario_t *sce, char **pos)
+{
+    char **temp;
+    char *buff = get_inline_content(pos, "start");
+
+    if (!my_strcmp(buff, "")) {
+        sce->start = (vec_t){-1, -1};
+        return 0;
+    }
+    temp = my_str_splitter(buff, ':');
+    sce->start = (vec_t) {my_getnbr(temp[0]), my_getnbr(temp[1])};
+    free(buff);
+    free_2dchar(temp);
+    return 1;
+}
+
+int get_end(scenario_t *sce, char **pos)
+{
+    char **temp;
+    char *buff = get_inline_content(pos, "end");
+
+    if (!my_strcmp(buff, "")) {
+        sce->end = (vec_t){-1, -1};
+        return 0;
+    }
+    temp = my_str_splitter(buff, ':');
+    sce->end = (vec_t) {my_getnbr(temp[0]), my_getnbr(temp[1])};
+    free(buff);
+    free_2dchar(temp);
+    return 1;
+}
+
 int get_positions(scenario_t *sce)
 {
     char **pos = get_balise_content(sce->row_data, "positions");
-    char *start;
-    char **temp;
 
     if (pos == NULL) {
         sce->start = (vec_t){-1, -1};
+        sce->end = (vec_t){-1, -1};
         return 0;
     }
-    start = get_inline_content(pos, "start");
-    if (!my_strcmp(start, "")) {
-        sce->start = (vec_t){-1, -1};
-        return 0;
-    }
-    temp = my_str_splitter(start, ':');
-    sce->start = (vec_t) {my_getnbr(temp[0]), my_getnbr(temp[1])};
+    get_start(sce, pos);
+    get_end(sce, pos);
     return 1;
 }
 

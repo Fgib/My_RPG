@@ -45,6 +45,13 @@ void save_positions(scenario_t *sce, int fd)
         char *buff = my_sprintf("\t<start>%i:%i</start>\n",
         sce->start.x, sce->start.y);
         write(fd, buff, my_strlen(buff));
+        free(buff);
+    }
+    if (sce->end.x >= 0 && sce->end.y >= 0) {
+        char *buff = my_sprintf("\t<end>%i:%i</end>\n",
+        sce->end.x, sce->end.y);
+        write(fd, buff, my_strlen(buff));
+        free(buff);
     }
     write(fd, "</positions>\n", 13);
 }

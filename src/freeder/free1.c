@@ -35,3 +35,8 @@ void free_item(item_t *item)
     sfSprite_destroy(item->icon);
     free_2dchar(item->data);
 }
+
+void free_player(player_t *ply)
+{
+    free(ply->inventory);
+}

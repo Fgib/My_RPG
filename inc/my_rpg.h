@@ -25,6 +25,7 @@
 void dispose(gen_t *prm);
 void refresh_window(gen_t *prm);
 void game_calculation(gen_t *prm);
+void free_player(player_t *ply);
 
 //loader/load_game1.c
 void setup_bar(gen_t *prm);

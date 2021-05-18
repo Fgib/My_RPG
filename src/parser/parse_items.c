@@ -9,8 +9,9 @@
 
 int get_items(gen_t *prm)
 {
-    char **items = my_str_splitter(my_file_loader("configs/items.conf"), '\n');
-
+    char *file = my_file_loader("configs/items.conf");
+    char **items = my_str_splitter(file, '\n');
+    free(file);
     if (items == NULL)
         return 0;
     char **dic = get_balise_content(items, "items");
@@ -42,4 +43,5 @@ void fill_item(gen_t *prm, char **block)
 
     item_t_push(&prm->items, &prm->item_count, (item_t){arr[0],
         my_getnbr(arr[1]), get_sprite(arr[2]), data});
+    free_2dchar(arr);
 }

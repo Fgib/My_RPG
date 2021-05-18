@@ -40,6 +40,7 @@ void fill_stats(player_t *ply, char **stats)
     ply->stats.level = my_getnbr(arr[3]);
     ply->stats.xp = my_getnbr(arr[4]);
     ply->stats.xp_next = get_xp_for_level(ply->stats.level + 1);
+    free_2dchar(arr);
 }
 
 void fill_inv(gen_t *prm, player_t *ply, char **inv)

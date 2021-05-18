@@ -1,6 +1,7 @@
 <title>Joli Nom</title>
 <positions>
 	<start>10:25</start>
+	<end>31:25</end>
 </positions>
 <dictionnary>
 	<enemy>
@@ -23,8 +24,8 @@
 	</enemy>
 </dictionnary>
 <map>
-	<sizex>96</sizex>
-	<sizey>54</sizey>
+	<sizex>43</sizex>
+	<sizey>36</sizey>
 	<region>
 		<id>24</id>
 		<coord>0:0:0</coord>

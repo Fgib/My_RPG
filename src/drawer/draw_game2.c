@@ -39,7 +39,8 @@ void print_enemies(gen_t *prm)
     sfVector2f coo = prm->game.player->coo;
     float vis = prm->game.player->vision;
     for (int i = 0; i < prm->game.scenario.enemies_count; ++i) {
-        if (RANGE(coo, prm->game.scenario.enemies[i].pos) > vis + 1)
+        if (RANGE(coo, prm->game.scenario.enemies[i].pos) > vis + 1 ||
+            prm->game.scenario.enemies[i].hp <= 0)
             continue;
         if (RANGE(coo, prm->game.scenario.enemies[i].pos) > vis)
             SCOL(prm->game.scenario.enemies[i].sprite, 100, 100, 100, 255);

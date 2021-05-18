@@ -16,6 +16,9 @@ void dispose(gen_t *prm)
     sfTexture_destroy(prm->tilesets[1]);
     sfTexture_destroy(prm->tilesets[2]);
     sfTexture_destroy(prm->tilesets[3]);
+    free_player(&prm->saves.save1);
+    free_player(&prm->saves.save2);
+    free_player(&prm->saves.save3);
     free(prm);
 }
 

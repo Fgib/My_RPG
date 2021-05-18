@@ -72,20 +72,33 @@ void draw_start(editor_t *edit, vec_t pos)
 {
     vec_t temp = edit->scenario->start;
 
-    sfSprite_setTextureRect(edit->scenario->spmap[temp.y][temp.x][3],
-    get_intrect(0, 0, 0, 0));
+    if (temp.x >= 0 && temp.y >= 0) {
+        sfSprite_setTextureRect(edit->scenario->spmap[temp.y][temp.x][3],
+        get_intrect(0, 0, 0, 0));
+    }
     SVEC(edit->scenario->start, pos);
     sfSprite_setTextureRect(edit->scenario->spmap[pos.y][pos.x][3],
     get_intrect(0, 17 * 256, 256, 256));
 }
 
+void draw_end(editor_t *edit, vec_t pos)
+{
+    vec_t temp = edit->scenario->end;
+
+    if (temp.x >= 0 && temp.y >= 0) {
+        sfSprite_setTextureRect(edit->scenario->spmap[temp.y][temp.x][3],
+        get_intrect(0, 0, 0, 0));
+    }
+    SVEC(edit->scenario->end, pos);
+    sfSprite_setTextureRect(edit->scenario->spmap[pos.y][pos.x][3],
+    get_intrect(0, 18 * 256, 256, 256));
+}
+
 void draw(editor_t *edit, vec_t pos)
 {
-    if (edit->scenario->mapsize.x < pos.x || edit->scenario->mapsize.y < pos.y)
+    if (edit->scenario->mapsize.x < pos.x || edit->scenario->mapsize.y < pos.y
+        || pos.x < 0 || pos.y < 0)
         return;
-    if (pos.x < 0 || pos.y < 0)
-        return;
-
     switch (edit->pmod) {
     case FLOOR: draw_texture(edit, pos, 0);
         break;
@@ -98,6 +111,8 @@ void draw(editor_t *edit, vec_t pos)
     case HITBOX: draw_zone(edit, pos, -1);
         break;
     case SPAWN: draw_start(edit, pos);
+        break;
+    case END: draw_end(edit, pos);
         break;
     default: break;
     }
