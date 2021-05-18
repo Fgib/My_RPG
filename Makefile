@@ -103,7 +103,7 @@ LFLAGS	=		-L $(ROOT)/lib/ -lprintf -lmy -lm
 
 EFLAGS	=		-Werror -Wall -Wextra  -Wpedantic
 
-CSFMLFLAGS	=	-l csfml-graphics -l csfml-window -l csfml-system -l csfml-audio -fsanitize=address
+CSFMLFLAGS	=	-l csfml-graphics -l csfml-window -l csfml-system -l csfml-audio #-fsanitize=address
 
 LIB 	=		lib/%.a
 

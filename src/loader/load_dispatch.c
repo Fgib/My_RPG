@@ -12,6 +12,7 @@ gen_t *get_struct_settings(char *path)
     gen_t *prm = malloc(sizeof(gen_t));
     load_key_mapping(&prm->keymap);
     prm->animation_clock = sfClock_create();
+    prm->setting = load_settings_menu();
     prm->window = window_creator();
     prm->pause = get_pause_s();
     prm->path = my_strdup(path);

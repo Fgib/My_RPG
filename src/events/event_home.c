@@ -10,7 +10,6 @@
 void home_event_bis(gen_t *prm)
 {
     if (triforce(prm->event, prm->home.sett_b)) {
-        prm->setting = load_settings_menu();
         prm->game_step = SETTINGS;
     }
     if (triforce(prm->event, prm->home.abou_b)) {}

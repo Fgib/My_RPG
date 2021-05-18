@@ -12,9 +12,6 @@ void game_attack_heal_inventory_event(gen_t *prm)
     if (prm->event.type == sfEvtKeyReleased) {
         if (prm->event.key.code == sfKeySpace) {
             prm->game.player->attack_id = 1;
-        }
-        if (prm->event.key.code == sfKeyM) {
-            prm->game.player->attack_id = 1;
             prm->game.part_l[1].lifetime = 0;
             sfSprite_setPosition(prm->game.part_l[1].core,
             get_vector(prm->game.mouse_tile_pos.x * 256 - 50,

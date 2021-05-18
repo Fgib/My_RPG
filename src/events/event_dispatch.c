@@ -16,6 +16,8 @@ void manage_events_bis(gen_t *prm)
         break;
     case 7: pause_menu_event(prm);
         break;
+    case 8: settings_event(prm);
+        break;
     }
 }
 
