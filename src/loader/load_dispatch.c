@@ -14,7 +14,7 @@ gen_t *get_struct_settings(void)
     prm->window = window_creator();
     prm->pause = get_pause_s();
     prm->game_step = HOME;
-    prm->saves.save = "players.save";
+    prm->saves.save = "setup/players.save";
     prm->keys = load_keys();
     prm->loading = get_sprite("assets/loading_screen.png");
     prm->tilesets = malloc(sizeof(sfTexture *) * 4);
