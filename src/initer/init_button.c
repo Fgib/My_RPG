@@ -10,7 +10,6 @@
 struct button *initialize_button(vec_t coo, vec_t size, sfVector2f scale
 , char *path)
 {
-    write(1, "Button initialisation -> ", 25);
     struct button *button_s = malloc(sizeof(struct button));
 
     button_s->coo = get_vector(coo.x, coo.y);
@@ -19,7 +18,6 @@ struct button *initialize_button(vec_t coo, vec_t size, sfVector2f scale
     sfSprite_setPosition(button_s->sprite, get_vector(button_s->coo.x,
     button_s->coo.y));
     sfSprite_setScale(button_s->sprite, scale);
-    write(1, "Button initialized\n", 19);
     return button_s;
 }
 

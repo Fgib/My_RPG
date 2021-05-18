@@ -21,3 +21,17 @@ void free_3dint(int ***arr)
             free(arr[j][i]);
     free(arr);
 }
+
+void free_scenario(scenario_t *scen)
+{
+    free(scen->name);
+    free_2dchar(scen->row_data);
+    free_3dint(scen->vmap);
+}
+
+void free_item(item_t *item)
+{
+    free(item->name);
+    sfSprite_destroy(item->icon);
+    free_2dchar(item->data);
+}

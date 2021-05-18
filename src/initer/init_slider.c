@@ -52,13 +52,10 @@ void init_slider_sprites(slider_t *temp, int px, int py, int val)
 
 struct button *initialize_slider_trigger(int px, int py, int sx, int sy)
 {
-    write(1, "Button initialisation -> ", 25);
     struct button *button_s = malloc(sizeof(struct button));
 
     button_s->coo = get_vector(px, py);
     button_s->size = get_vector(sx, sy);
-
-    write(1, "Button Successfully initialized\n", 32);
     return (button_s);
 }
 
@@ -72,8 +69,5 @@ slider_t *initialize_slider(int px, int py, int val, char *name)
     init_slider_sprites(temp, px, py, val);
     init_slider_name(temp, px, py, name);
     init_slider_digit(temp, px, py, val);
-
-    write(1, "Slider initialisation -> ", 25);
-    write(1, "Slider Successfully initialized\n", 32);
     return temp;
 }

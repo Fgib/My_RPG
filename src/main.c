@@ -9,10 +9,14 @@
 
 void dispose(gen_t *prm)
 {
-    write(1, "Free begining\n", 14);
     sfRenderWindow_destroy(prm->window);
+    
+    free(prm->path);
+    sfTexture_destroy(prm->tilesets[0]);
+    sfTexture_destroy(prm->tilesets[1]);
+    sfTexture_destroy(prm->tilesets[2]);
+    sfTexture_destroy(prm->tilesets[3]);
     free(prm);
-    write(1, "Successfully free\n", 18);
 }
 
 void refresh_window(gen_t *prm)
@@ -31,9 +35,13 @@ void game_calculation(gen_t *prm)
 
 }
 
-int main(void)
+int main(int ac, char **av)
 {
-    gen_t *prm = get_struct_settings();
+    if (ac != 2) {
+        my_printf("please give map in argument. ex: \"dungeon.scen\"\n");
+        return 0;
+    }
+    gen_t *prm = get_struct_settings(av[1]);
 
     sfRenderWindow_setFramerateLimit(prm->window, 60);
     while (sfRenderWindow_isOpen(prm->window) && prm->game_step != OUT) {

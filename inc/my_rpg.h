@@ -25,7 +25,6 @@
 void dispose(gen_t *prm);
 void refresh_window(gen_t *prm);
 void game_calculation(gen_t *prm);
-int main(void);
 
 //loader/load_game1.c
 void setup_bar(gen_t *prm);
@@ -58,7 +57,7 @@ void load_home_struct_buttons(gen_t *prm);
 void load_home_struct(gen_t *prm);
 
 //loader/load_dispatch.c
-gen_t *get_struct_settings(void);
+gen_t *get_struct_settings(char * path);
 
 //loader/load_editor4.c
 void editor_enemy_setup_loading4(gen_t *prm);

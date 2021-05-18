@@ -7,12 +7,13 @@
 
 #include "my_rpg.h"
 
-gen_t *get_struct_settings(void)
+gen_t *get_struct_settings(char *path)
 {
     gen_t *prm = malloc(sizeof(gen_t));
     prm->animation_clock = sfClock_create();
     prm->window = window_creator();
     prm->pause = get_pause_s();
+    prm->path = my_strdup(path);
     prm->game_step = HOME;
     prm->saves.save = "players.save";
     prm->keys = load_keys();
@@ -26,6 +27,5 @@ gen_t *get_struct_settings(void)
     load_home_struct(prm);
     load_custom_struct(prm);
     get_saves(prm);
-    write(1, "Everything loaded successfully\n\n", 32);
     return prm;
 }

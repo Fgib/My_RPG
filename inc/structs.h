@@ -416,6 +416,7 @@ typedef struct gen {
     sfSprite *hitbox;
     sfSprite *loading;
     playersave_t saves;
+    char *path;
     item_t *items;
     int item_count;
     keys_t keys;

@@ -44,7 +44,7 @@ void load_game_particle(gen_t *prm)
 
 void load_game_scenario(gen_t *prm)
 {
-    prm->game.scenario.path = "first_scenario.scen";
+    prm->game.scenario.path = prm->path;
     prm->game.scenario.row_data = my_str_splitter
     (my_file_loader(prm->game.scenario.path), '\n');
     prm->game.scenario.name = "Joli Nom";
