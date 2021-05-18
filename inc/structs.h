@@ -287,10 +287,12 @@ typedef struct setti_menu {
     struct button *go_right;
     struct button *go_down;
     struct button *go_left;
+    struct button *attack;
     sfText *t_up;
     sfText *t_right;
     sfText *t_down;
     sfText *t_left;
+    sfText *t_atck;
     slider_t *luminosity;
     slider_t *contrast;
     slider_t *saturation;

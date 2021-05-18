@@ -10,7 +10,7 @@
 void draw_settings_graph(gen_t *prm)
 {
     sfText_setString(prm->setting->transp2->text, "Graphics Settings");
-    sfRenderWindow_drawText(prm->window, prm->setting->transp2->text, NULL);
+    DRAW_T(prm->setting->transp2->text);
 
     draw_trigger(prm->window, prm->setting->vsync);
     draw_trigger(prm->window, prm->setting->focus);
@@ -22,30 +22,28 @@ void draw_settings_graph(gen_t *prm)
 
 void draw_settings_keys_bis(gen_t *prm)
 {
-    sfRenderWindow_drawText(prm->window, prm->setting->t_up, NULL);
-    sfRenderWindow_drawText(prm->window, prm->setting->t_right, NULL);
-    sfRenderWindow_drawText(prm->window, prm->setting->t_down, NULL);
-    sfRenderWindow_drawText(prm->window, prm->setting->t_left, NULL);
+    DRAW_T(prm->setting->t_up);
+    DRAW_T(prm->setting->t_right);
+    DRAW_T(prm->setting->t_down);
+    DRAW_T(prm->setting->t_left);
+    DRAW_T(prm->setting->t_atck);
 }
 
 void draw_settings_keys(gen_t *prm)
 {
     sfText_setString(prm->setting->transp2->text, "Keyboard Settings");
-    sfRenderWindow_drawText(prm->window, prm->setting->transp2->text, NULL);
-
-    sfRenderWindow_drawSprite(prm->window, prm->setting->go_up->sprite,
-    NULL);
-    sfRenderWindow_drawSprite(prm->window, prm->setting->go_right->sprite,
-    NULL);
-    sfRenderWindow_drawSprite(prm->window, prm->setting->go_down->sprite,
-    NULL);
-    sfRenderWindow_drawSprite(prm->window, prm->setting->go_left->sprite,
-    NULL);
-
-    sfRenderWindow_drawText(prm->window, prm->setting->go_up->text, NULL);
-    sfRenderWindow_drawText(prm->window, prm->setting->go_right->text, NULL);
-    sfRenderWindow_drawText(prm->window, prm->setting->go_down->text, NULL);
-    sfRenderWindow_drawText(prm->window, prm->setting->go_left->text, NULL);
+    DRAW_T(prm->setting->transp2->text);
+    DRAW_S(prm->setting->go_up->sprite);
+    DRAW_S(prm->setting->go_right->sprite);
+    DRAW_S(prm->setting->go_down->sprite);
+    DRAW_S(prm->setting->go_left->sprite);
+    DRAW_S(prm->setting->attack->sprite);
+    DRAW_T(prm->setting->go_up->text);
+    DRAW_T(prm->setting->go_right->text);
+    DRAW_T(prm->setting->go_down->text);
+    DRAW_T(prm->setting->go_left->text);
+    DRAW_T(prm->setting->attack->text);
+    draw_settings_keys_bis(prm);
 }
 
 void draw_settings(gen_t *prm)
@@ -53,8 +51,7 @@ void draw_settings(gen_t *prm)
     sfRenderWindow_setMouseCursorVisible(prm->window, sfTrue);
     draw_settings_menu(prm);
     if (prm->setting->set_step != SET_HOME)
-        sfRenderWindow_drawSprite(prm->window, prm->setting->transp2->sprite,
-        NULL);
+        DRAW_S(prm->setting->transp2->sprite);
     if (prm->setting->set_step == SET_GRAPH)
         draw_settings_graph(prm);
     if (prm->setting->set_step == SET_KEYS)

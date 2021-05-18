@@ -124,6 +124,10 @@ void setup_settings_btns(setti_menu_t *temp);
 void load_settings_keymap(setti_menu_t *temp);
 setti_menu_t *load_settings_menu(void);
 
+//loader/load_settings2.c
+void load_text_settings_keymap_coo(setti_menu_t *temp);
+void load_text_settings_keymap_b(setti_menu_t *temp);
+
 //drawer/draw_home.c
 void draw_home(gen_t *prm);
 

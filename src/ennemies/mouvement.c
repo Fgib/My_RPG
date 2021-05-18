@@ -41,7 +41,6 @@ void enemies_movement(gen_t *prm)
         if (PRANGE(prm->game.scenario.enemies[i].pos,
         prm->game.player->coo) < 100) {
             prm->game.player->life = fmax(prm->game.player->life - 0.1, 0);
-            printf("new life: %f\n", prm->game.player->life);
         }
     }
 }

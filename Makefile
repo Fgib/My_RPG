@@ -10,44 +10,45 @@ REAL	=		$(ROOT)/build
 
 SRC		=	$(SRC_DIR)/main.c\
 			$(SRC_DIR)/generic.c\
-			$(SRC_DIR)/utils/file_loading.c\
-			$(SRC_DIR)/utils/math_trigo.c\
 			$(SRC_DIR)/utils/my_get.c\
+			$(SRC_DIR)/utils/my_free.c\
+			$(SRC_DIR)/utils/math_trigo.c\
 			$(SRC_DIR)/utils/randomizer.c\
-			$(SRC_DIR)/utils/window_creator.c\
+			$(SRC_DIR)/utils/file_loading.c\
 			$(SRC_DIR)/utils/string_stuff1.c\
 			$(SRC_DIR)/utils/string_stuff2.c\
 			$(SRC_DIR)/utils/string_stuff3.c\
-			$(SRC_DIR)/utils/my_free.c\
+			$(SRC_DIR)/utils/window_creator.c\
+			$(SRC_DIR)/loader/load_keys.c\
 			$(SRC_DIR)/loader/load_home.c\
 			$(SRC_DIR)/loader/load_game1.c\
 			$(SRC_DIR)/loader/load_game2.c\
-			$(SRC_DIR)/loader/load_keys.c\
 			$(SRC_DIR)/loader/load_pause.c\
+			$(SRC_DIR)/loader/load_custom.c\
 			$(SRC_DIR)/loader/load_editor1.c\
 			$(SRC_DIR)/loader/load_editor2.c\
 			$(SRC_DIR)/loader/load_editor3.c\
 			$(SRC_DIR)/loader/load_editor4.c\
-			$(SRC_DIR)/loader/load_custom.c\
-			$(SRC_DIR)/loader/load_settings.c\
 			$(SRC_DIR)/loader/load_dispatch.c\
+			$(SRC_DIR)/loader/load_settings.c\
+			$(SRC_DIR)/loader/load_settings2.c\
 			$(SRC_DIR)/loader/load_save_selector.c\
 			$(SRC_DIR)/drawer/draw_game.c\
 			$(SRC_DIR)/drawer/draw_game2.c\
 			$(SRC_DIR)/drawer/draw_home.c\
 			$(SRC_DIR)/drawer/draw_pause.c\
+			$(SRC_DIR)/drawer/draw_custom.c\
 			$(SRC_DIR)/drawer/draw_editor1.c\
 			$(SRC_DIR)/drawer/draw_editor2.c\
 			$(SRC_DIR)/drawer/draw_editor3.c\
-			$(SRC_DIR)/drawer/draw_custom.c\
 			$(SRC_DIR)/drawer/drawer_utils.c\
 			$(SRC_DIR)/drawer/draw_settings1.c\
 			$(SRC_DIR)/drawer/draw_settings2.c\
-			$(SRC_DIR)/drawer/draw_save_selector.c\
 			$(SRC_DIR)/drawer/drawer_dispatch.c\
-			$(SRC_DIR)/items/instanciate.c\
+			$(SRC_DIR)/drawer/draw_save_selector.c\
 			$(SRC_DIR)/items/usage.c\
 			$(SRC_DIR)/items/data/get.c\
+			$(SRC_DIR)/items/instanciate.c\
 			$(SRC_DIR)/events/event_editor1.c\
 			$(SRC_DIR)/events/event_editor2.c\
 			$(SRC_DIR)/events/event_editor3.c\
@@ -65,28 +66,28 @@ SRC		=	$(SRC_DIR)/main.c\
 			$(SRC_DIR)/initer/init_slider.c\
 			$(SRC_DIR)/initer/init_player.c\
 			$(SRC_DIR)/initer/init_trigger.c\
+			$(SRC_DIR)/event_utils/slider.c\
+			$(SRC_DIR)/event_utils/trigger.c\
 			$(SRC_DIR)/event_utils/scroling.c\
 			$(SRC_DIR)/event_utils/triforce.c\
 			$(SRC_DIR)/event_utils/key_strokes.c\
-			$(SRC_DIR)/event_utils/slider.c\
-			$(SRC_DIR)/event_utils/trigger.c\
 			$(SRC_DIR)/event_utils/strokes_count.c\
 			$(SRC_DIR)/options/mapping.c\
 			$(SRC_DIR)/editor/brush.c\
-			$(SRC_DIR)/saver/save_player.c\
 			$(SRC_DIR)/saver/save_map.c\
+			$(SRC_DIR)/saver/save_player.c\
 			$(SRC_DIR)/saver/save_scenario.c\
-			$(SRC_DIR)/parser/parse_utils.c\
 			$(SRC_DIR)/parser/parse_map.c\
-			$(SRC_DIR)/parser/parse_map_utils.c\
 			$(SRC_DIR)/parser/parse_dic.c\
-			$(SRC_DIR)/parser/parse_saves.c\
+			$(SRC_DIR)/parser/parse_utils.c\
 			$(SRC_DIR)/parser/parse_items.c\
+			$(SRC_DIR)/parser/parse_saves.c\
 			$(SRC_DIR)/parser/parse_inline.c\
+			$(SRC_DIR)/parser/parse_map_utils.c\
 			$(SRC_DIR)/freeder/free1.c\
-			$(SRC_DIR)/ennemies/instanciate.c\
 			$(SRC_DIR)/ennemies/animation.c\
 			$(SRC_DIR)/ennemies/mouvement.c\
+			$(SRC_DIR)/ennemies/instanciate.c\
 			$(SRC_DIR)/player/movement.c\
 			$(SRC_DIR)/player/animation.c\
 			$(SRC_DIR)/player/inventory.c\

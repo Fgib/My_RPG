@@ -15,7 +15,6 @@ void setup_sub_settings(setti_menu_t *temp)
     temp->ennemis = initialize_slider(789, 590, 50, "Enemies");
     temp->alerts = initialize_slider(789, 670, 50, "Alerts");
     temp->wind = initialize_slider(789, 750, 50, "Wind");
-
     temp->vsync = initialize_trigger((sfVector2f){804, 350}, "Vsync");
     temp->focus = initialize_trigger((sfVector2f){804, 420},
     "Pause on focus lost");
@@ -62,16 +61,19 @@ void load_settings_keymap(setti_menu_t *temp)
 {
     temp->go_up = initialize_button((vec_t){1080, 350},
     (vec_t){60, 60}, (sfVector2f){0.45, 0.45}, "assets/tri_button.png");
-    temp->go_right = initialize_button((vec_t){1080, 450},
+    temp->go_right = initialize_button((vec_t){1080, 430},
     (vec_t){60, 60}, (sfVector2f){0.45, 0.45}, "assets/tri_button.png");
-    temp->go_down = initialize_button((vec_t){1080, 550},
+    temp->go_down = initialize_button((vec_t){1080, 510},
     (vec_t){60, 60}, (sfVector2f){0.45, 0.45}, "assets/tri_button.png");
-    temp->go_left = initialize_button((vec_t){1080, 650},
+    temp->go_left = initialize_button((vec_t){1080, 590},
+    (vec_t){60, 60}, (sfVector2f){0.45, 0.45}, "assets/tri_button.png");
+    temp->attack = initialize_button((vec_t){1080, 670},
     (vec_t){60, 60}, (sfVector2f){0.45, 0.45}, "assets/tri_button.png");
     load_text_button(temp->go_up, (vec3_t){20, 15, 40}, "W");
     load_text_button(temp->go_right, (vec3_t){20, 15, 40}, "D");
     load_text_button(temp->go_down, (vec3_t){20, 15, 40}, "S");
     load_text_button(temp->go_left, (vec3_t){20, 15, 40}, "A");
+    load_text_button(temp->attack, (vec3_t){20, 15, 40}, "B");
 }
 
 setti_menu_t *load_settings_menu(void)
@@ -84,6 +86,7 @@ setti_menu_t *load_settings_menu(void)
     setup_sub_settings(temp);
     setup_settings_btns(temp);
     load_settings_keymap(temp);
+    load_text_settings_keymap_b(temp);
 
     return temp;
 }
