@@ -22,6 +22,25 @@ void editor_enemy_setup_loading4(gen_t *prm)
     sfSprite_setTextureRect(prm->editor.nb_moins->sprite, zone);
 }
 
+void editor_enemy_setup_loading5(gen_t *prm)
+{
+    prm->editor.hp_text = initialize_button((vec_t){850, 350},
+    (vec_t){0, 0}, get_vector(0, 0), "assets/blank_tile.png");
+    prm->editor.armor_text = initialize_button((vec_t){850, 450},
+    (vec_t){0, 0}, get_vector(0, 0), "assets/blank_tile.png");
+    prm->editor.range_text = initialize_button((vec_t){850, 550},
+    (vec_t){0, 0}, get_vector(0, 0), "assets/blank_tile.png");
+    prm->editor.speed_text = initialize_button((vec_t){850, 650},
+    (vec_t){0, 0}, get_vector(0, 0), "assets/blank_tile.png");
+    prm->editor.nb_text = initialize_button((vec_t){850, 750},
+    (vec_t){0, 0}, get_vector(0, 0), "assets/blank_tile.png");
+    load_text_button(prm->editor.hp_text, (vec3_t){0, 0, 40}, "HP");
+    load_text_button(prm->editor.armor_text, (vec3_t){0, 0, 40}, "Armor");
+    load_text_button(prm->editor.range_text, (vec3_t){0, 0, 40}, "Range");
+    load_text_button(prm->editor.speed_text, (vec3_t){0, 0, 40}, "Speed");
+    load_text_button(prm->editor.nb_text, (vec3_t){0, 0, 40}, "Number");
+}
+
 void editor_enemy_setup_loading(gen_t *prm)
 {
     prm->editor.hp_val = load_text_str("", 50, (vec_t){1250, 350});
@@ -32,6 +51,7 @@ void editor_enemy_setup_loading(gen_t *prm)
     editor_enemy_setup_loading2(prm);
     editor_enemy_setup_loading3(prm);
     editor_enemy_setup_loading4(prm);
+    editor_enemy_setup_loading5(prm);
 }
 
 void load_editor_cursor_stuff(gen_t *prm)

@@ -17,7 +17,7 @@ void pause_menu_event1(gen_t *prm)
         prm->game_step = HOME;
     if (triforce(prm->event, prm->pause->exit_b))
         prm->game_step = OUT;
-    if(triforce(prm->event, prm->pause->restart_b))
+    if (triforce(prm->event, prm->pause->restart_b))
         prm->game_step = HOME;
 }
 

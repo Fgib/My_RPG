@@ -16,6 +16,13 @@ void editor_events_taskbar_bis(gen_t *prm)
         prm->editor.edit_step = DEFAULT;
         prm->editor.pmod = SPAWN;
     }
+    if (click_rel(prm->event, prm->editor.endpoint)) {
+        taskbar_reset(prm);
+        sfSprite_setTextureRect(prm->editor.endpoint->sprite,
+        get_intrect(0, 0, 53, 53));
+        prm->editor.edit_step = DEFAULT;
+        prm->editor.pmod = END;
+    }
     if (click_pre(prm->event, prm->editor.zones_selector->cursor)) {
         taskbar_reset(prm);
         prm->editor.pmod = ZONES;
