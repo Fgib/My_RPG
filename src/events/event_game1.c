@@ -47,6 +47,12 @@ void game_inventory_events(gen_t *prm)
         if (duoforce(prm->event, prm->game.inv_btn[i], 53))
             item_use(prm, &prm->game.player->inventory[i]);
     }
+    if (triforce(prm->event, prm->game.player->atk_plus))
+        prm->game.player->stats.damage++;
+    if (triforce(prm->event, prm->game.player->mv_speed_plus))
+        prm->game.player->stats.mov_speed++;
+    if (triforce(prm->event, prm->game.player->atk_speed_plus))
+        prm->game.player->stats.atk_speed++;
 
 }
 

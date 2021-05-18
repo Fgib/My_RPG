@@ -7,15 +7,26 @@
 
 #include "my_rpg.h"
 
+void attack_enemy(gen_t *prm)
+{
+    prm->game.player->attack_id = 1;
+    prm->game.part_l[1].lifetime = 0;
+    sfSprite_setPosition(prm->game.part_l[1].core,
+    get_vector(prm->game.mouse_tile_pos.x * 256 - 50,
+    prm->game.mouse_tile_pos.y * 256 - 50));
+    for (int i = 0; i < prm->game.scenario.enemies_count; ++i) {
+        if (RANGE(prm->game.scenario.enemies[i].pos, prm->game.mouse_tile_pos) > 2)
+            continue;
+        prm->game.scenario.enemies[i].hp -= 10;
+        break;
+    }
+}
+
 void game_attack_heal_inventory_event(gen_t *prm)
 {
     if (prm->event.type == sfEvtKeyReleased) {
         if (prm->event.key.code == sfKeySpace) {
-            prm->game.player->attack_id = 1;
-            prm->game.part_l[1].lifetime = 0;
-            sfSprite_setPosition(prm->game.part_l[1].core,
-            get_vector(prm->game.mouse_tile_pos.x * 256 - 50,
-            prm->game.mouse_tile_pos.y * 256 - 50));
+            attack_enemy(prm);
         }
         if (prm->event.key.code == sfKeyEscape)
             prm->game_step = PAUSE;

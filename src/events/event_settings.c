@@ -44,8 +44,7 @@ void events_sub_settings_keys(gen_t *prm)
             prm->setting->mapselect = 3;
         if (triforce(prm->event, prm->setting->go_left))
             prm->setting->mapselect = 4;
-        // if (triforce(prm->event, prm->setting->attack))
-        //     prm->setting->mapselect = 5;
+        triforce(prm->event, prm->setting->attack);
         if (prm->event.type == sfEvtKeyPressed && prm->setting->mapselect)
             update_keys(prm, prm->setting, prm->event.key.code);
     }
