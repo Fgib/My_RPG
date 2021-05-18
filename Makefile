@@ -85,6 +85,7 @@ SRC		=	$(SRC_DIR)/main.c\
 			$(SRC_DIR)/parser/parse_inline.c\
 			$(SRC_DIR)/parser/parse_map_utils.c\
 			$(SRC_DIR)/freeder/free1.c\
+			$(SRC_DIR)/freeder/main_menu.c\
 			$(SRC_DIR)/ennemies/animation.c\
 			$(SRC_DIR)/ennemies/mouvement.c\
 			$(SRC_DIR)/ennemies/instanciate.c\

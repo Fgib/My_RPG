@@ -142,10 +142,22 @@ typedef struct keys {
 } keys_t;
 
 typedef struct keymap {
-    sfKeyCode w;
-    sfKeyCode s;
-    sfKeyCode a;
-    sfKeyCode d;
+    sfKeyCode forward;
+    sfKeyCode backward;
+    sfKeyCode left;
+    sfKeyCode right;
+    sfKeyCode inventory;
+    sfKeyCode space;
+    sfKeyCode interact;
+    sfKeyCode num1;
+    sfKeyCode num2;
+    sfKeyCode num3;
+    sfKeyCode num4;
+    sfKeyCode num5;
+    sfKeyCode num6;
+    sfKeyCode num7;
+    sfKeyCode num8;
+    sfKeyCode num9;
 } keymap_t;
 
 typedef struct slider {
@@ -177,6 +189,9 @@ typedef struct player {
     sfSprite *player_sheet;
     sfSprite *stats_icon;
     slot_t *inventory;
+    struct button *atk_plus;
+    struct button *mv_speed_plus;
+    struct button *atk_speed_plus;
     sfVector2f coo;
     int attack_id;
     float vision;
@@ -429,7 +444,7 @@ typedef struct gen {
     item_t *items;
     int item_count;
     keys_t keys;
-    keymap_t *keymap;
+    keymap_t keymap;
     sfEvent event;
     sfRenderWindow *window;
     enum win_step game_step;

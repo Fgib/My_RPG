@@ -12,6 +12,8 @@ void dispose(gen_t *prm)
     sfRenderWindow_destroy(prm->window);
     
     free(prm->path);
+    free(prm->pause);
+    free_main_menu(prm);
     sfTexture_destroy(prm->tilesets[0]);
     sfTexture_destroy(prm->tilesets[1]);
     sfTexture_destroy(prm->tilesets[2]);

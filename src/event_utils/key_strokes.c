@@ -10,36 +10,32 @@
 void key_pressed(gen_t *prm)
 {
     if (prm->event.type == sfEvtKeyPressed) {
-        if (prm->event.key.code == sfKeyW)
+        if (prm->event.key.code == KEY(forward))
             prm->keys.mv_up = 1;
-        if (prm->event.key.code == sfKeyA)
+        if (prm->event.key.code == KEY(left))
             prm->keys.mv_left = 1;
-        if (prm->event.key.code == sfKeyS)
+        if (prm->event.key.code == KEY(backward))
             prm->keys.mv_down = 1;
-        if (prm->event.key.code == sfKeyD)
+        if (prm->event.key.code == KEY(right))
             prm->keys.mv_right = 1;
-        if (prm->event.key.code == sfKeySpace)
+        if (prm->event.key.code == KEY(space))
             prm->keys.space = 1;
-        if (prm->event.key.code == sfKeyTab)
-            prm->keys.tab = 1;
     }
 }
 
 void key_released(gen_t *prm)
 {
     if (prm->event.type == sfEvtKeyReleased) {
-        if (prm->event.key.code == sfKeyW)
+        if (prm->event.key.code == KEY(forward))
             prm->keys.mv_up = 0;
-        if (prm->event.key.code == sfKeyA)
+        if (prm->event.key.code == KEY(left))
             prm->keys.mv_left = 0;
-        if (prm->event.key.code == sfKeyS)
+        if (prm->event.key.code == KEY(backward))
             prm->keys.mv_down = 0;
-        if (prm->event.key.code == sfKeyD)
+        if (prm->event.key.code == KEY(right))
             prm->keys.mv_right = 0;
-        if (prm->event.key.code == sfKeySpace)
+        if (prm->event.key.code == KEY(space))
             prm->keys.space = 0;
-        if (prm->event.key.code == sfKeyTab)
-            prm->keys.tab = 0;
     }
 }
 

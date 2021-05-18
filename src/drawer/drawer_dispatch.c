@@ -11,7 +11,7 @@ void window_update(gen_t *prm)
 {
     if (prm->game_step == HOME)
         draw_home(prm);
-    if (prm->game_step == SETTINGS)
+    if (prm->game_step == SETTINGS || prm->game_step == G_SETTINGS)
         draw_settings(prm);
     if (prm->game_step ==CUSTOM)
         draw_custom(prm);

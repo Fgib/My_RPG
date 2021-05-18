@@ -17,6 +17,7 @@
 #define SKELETON2 get_intrect(187 , 165, 214, 149)
 #define TORCH get_intrect(296 , 766, 28, 81)
 #define WINDOW get_intrect(0 , 0, 165, 300)
+#define KEY(X) prm->keymap.X
 #define CLEARFILE(X) fclose(fopen(X, "w"));
 #define SVEC(X, Y) X.x = Y.x; \
 X.y = Y.y;

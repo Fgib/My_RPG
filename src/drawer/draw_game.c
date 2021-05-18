@@ -7,7 +7,7 @@
 
 #include "my_rpg.h"
 
-void draw_game_inventory(gen_t *prm)
+void draw_game_up_stat(gen_t *prm)
 {
     DRAW_S(prm->game.inv_tansp->sprite);
     DRAW_S(prm->game.player->stats_icon);
@@ -16,6 +16,17 @@ void draw_game_inventory(gen_t *prm)
     DRAW_T(prm->game.player->stats.damage_t);
     DRAW_T(prm->game.player->stats.level_t);
     DRAW_T(prm->game.player->stats.xp_t);
+    DRAW_S(prm->game.player->atk_plus->sprite);
+    DRAW_S(prm->game.player->mv_speed_plus->sprite);
+    DRAW_S(prm->game.player->atk_speed_plus->sprite);
+    // DRAW_T(prm->game.player->atk_plus->text);
+    // DRAW_T(prm->game.player->mv_speed_plus->text);
+    // DRAW_T(prm->game.player->atk_speed_plus->text);
+}
+
+void draw_game_inventory(gen_t *prm)
+{
+    draw_game_up_stat(prm);
     for (int i = 0; i < 36; i++) {
         int id = prm->game.player->inventory[i].item_id;
         DRAW_S(prm->game.inv_btn[i]->sprite);

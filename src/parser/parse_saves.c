@@ -21,6 +21,7 @@ int get_saves(gen_t *prm)
         free_2dchar(save1);
     if (fill_player(prm, &prm->saves.save3, save2))
         free_2dchar(save2);
+    free_2dchar(file);
     return 1;
 }
 

@@ -20,16 +20,17 @@
 #define GV(X, Y) get_vector(X, Y)
 #define T_FROMFILE(X) sfTexture_createFromFile(X, NULL)
 
-
 //main.c
 void dispose(gen_t *prm);
 void refresh_window(gen_t *prm);
 void game_calculation(gen_t *prm);
 void free_player(player_t *ply);
+void free_main_menu(gen_t *prm);
 
 //loader/load_game1.c
 void setup_bar(gen_t *prm);
 void load_game_views(gen_t *prm);
+void load_game_stats_up(gen_t *prm);
 
 //generic.c
 void enemy_t_push(enemy_t **array, int *size, enemy_t new);
@@ -42,6 +43,9 @@ void load_editor_exit_menu(gen_t *prm);
 void load_editor_gui_tools(gen_t *prm);
 void load_editor_gui(gen_t *prm);
 void load_editor_scenario_stuff(gen_t *prm);
+void load_key_mapping(keymap_t *keys);
+void update_other(gen_t *prm, setti_menu_t *me, sfKeyCode key);
+void update_num(gen_t *prm, setti_menu_t *me, sfKeyCode key);
 
 //loader/load_keys.c
 keys_t load_keys(void);
